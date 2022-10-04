@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>formulaire upload</title>
+<script type="text/javascript">
+function create_champ(i) {
+var i2 = i + 1;
+document.getElementById('leschamps_'+i).innerHTML = '<input type="file" name="image'+i+'"></span>';
+/* on limite ici le nombre de champs à un maximum de 10 */
+document.getElementById('leschamps_'+i).innerHTML += (i <= 4) ? '<br /><span id="leschamps_'+i2+'"><a href="javascript:create_champ('+i2+')">Ajouter un champs</a></span>' : '';
+}
+</script>
+</head>
+ 
+<body>
+<form enctype="multipart/form-data" action="" method="post">
+<input type="file" name="image1" /><br />
+<span id="leschamps_2"><a href="javascript:create_champ(2)">Ajouter un champs</a></span>
+<input name="valide" type="submit" value="envoyer"/>
+<input style="color:#FFFFFF" type="button" name="button"  value="Quitter" class="kpo"  onclick='self.close();'/>
+</form>
+</body>
+</html>
